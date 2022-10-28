@@ -73,7 +73,7 @@ def missed_tasks():
 
 def add_task():
     input_task = input('Enter a task\n')
-    input_deadline = input(f'Enter a deadline. Example format: {today}\n')
+    input_deadline = input(f'Enter a deadline. Example format: {today.date()}\n')
     row_1 = Task(task=input_task, deadline=datetime.strptime(input_deadline, '%Y-%m-%d').date())
     session.add(row_1)
     session.commit()
