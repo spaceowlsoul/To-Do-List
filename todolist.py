@@ -73,7 +73,7 @@ def missed_tasks():
 
 def add_task():
     input_task = input('Enter a task\n')
-    input_deadline = input('Enter a deadline\n')
+    input_deadline = input(f'Enter a deadline. Example format: {today}\n')
     row_1 = Task(task=input_task, deadline=datetime.strptime(input_deadline, '%Y-%m-%d').date())
     session.add(row_1)
     session.commit()
@@ -100,7 +100,7 @@ def main():
     while action != '0':
         print("1) Today's tasks\n2) Week's tasks\n3) All tasks")
         print("4) Missed tasks\n5) Add a task\n6) Delete a task\n0) Exit")
-        action = input()
+        action = input('Choose an option:\n')
         print()
         if action in actions:
             actions[action]()
